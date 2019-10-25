@@ -36,10 +36,10 @@ class Home extends React.Component<HomeProps, HomeStates> {
     //   type: 'app/setGithubDataAction',
     //   user: this.state.username
     // });
-    // this.props.dispatch({
-    //   type: 'app/setCommitDataAction',
-    //   user: 'aoping'
-    // });
+    this.props.dispatch({
+      type: 'app/setCommitDataAction',
+      user: 'aoping'
+    });
   }
 
   render() {

@@ -1,29 +1,18 @@
 import React from 'react';
-import styles from './index.css';
-import { connect } from "dva";
-import { ConnectProps, ConnectState } from '@/models/connect';
-import { Dispatch } from 'redux';
-import Resume from '@/components/resume'
 import { Input, Tag } from 'antd';
 import router from 'umi/router';
 import Link from 'umi/link';
 
 const { Search } = Input;
 
-export interface HomeProps extends ConnectProps {
-  githubData: any;
-  loading: boolean;
-  dispatch: Dispatch;
+export interface HomeProps {
+
 }
 
 interface HomeStates {
-  username: string
 }
 
-@connect(({ loading, app }: ConnectState) => ({
-  loading,
-  githubData: app.githubData,
-}))
+
 class Home extends React.Component<HomeProps, HomeStates> {
   constructor(props: HomeProps) {
     super(props)
@@ -33,14 +22,6 @@ class Home extends React.Component<HomeProps, HomeStates> {
   }
   componentDidMount() {
 
-    // this.props.dispatch({
-    //   type: 'app/setGithubDataAction',
-    //   user: this.state.username
-    // });
-    // this.props.dispatch({
-    //   type: 'app/setCommitDataAction',
-    //   user: 'aoping'
-    // });
   }
 
   onSearch = (username: string) => {

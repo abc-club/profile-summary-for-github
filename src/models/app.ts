@@ -1,11 +1,13 @@
 import { getUser, getCommit, } from '../services/github'
 
 const inintState: IAppModelState = {
-  githubData: {}
+  githubData: {},
+  commitData: {},
 }
 
 export interface IAppModelState {
   githubData?: any;
+  commitData: any;
 }
 
 export default {
@@ -20,14 +22,18 @@ export default {
     },
     *setCommitDataAction({ user }, { call, put }) {
       const res = yield call(getCommit, { user } );
-      // if(res){
-      //   yield put({ type: "setGithubData", payload: res||{} });
-      // }
+      if(res){
+        yield put({ type: "setCommitData", payload: res||{} });
+      }
     },
   },
   reducers: {
     setGithubData(state: IAppModelState, { payload }) {
       state.githubData = payload
+      return state
+    },
+    setCommitData(state: IAppModelState, { payload }) {
+      state.commitData = payload
       return state
     },
   }

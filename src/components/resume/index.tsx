@@ -3,6 +3,7 @@ import { useQuery, } from '@apollo/react-hooks';
 import { GETUSER } from '@/gql'
 import { Row, Col, Card, Icon, Avatar, Tag, } from 'antd';
 import moment from 'moment'
+import Timeline from '../timeline'
 import styles from './index.css';
 
 interface IProps {
@@ -77,6 +78,7 @@ function Home(props: IProps) {
         </Col>
       </Row>
       <hr/>
+      <Timeline username={props.username}/>
     </div>
   )
 }
