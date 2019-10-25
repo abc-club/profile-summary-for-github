@@ -22,12 +22,11 @@ function Home(props: IProps) {
 
 
   const repos = user.repositories.nodes.map((repo: any) => {
-
     return (
       <div key={repo.id}>
         <Row>
           <Col span={20}>
-            <h3><a href={repo.url} target="_blank">{repo.name}</a></h3>
+            <h3><a href={repo.url} target="_blank">{repo.name}</a> {repo.stargazers.totalCount} <Icon type="star" theme="filled" /></h3>
             {repo.primaryLanguage && <Tag color={repo.primaryLanguage.color} className={styles.tag}>{repo.primaryLanguage.name}</Tag>}
             <span>{repo.description}</span>
           </Col>
@@ -38,6 +37,22 @@ function Home(props: IProps) {
         </div>
         <hr/>
       </div>
+    )
+  })
+
+  const followers = user.followers.nodes.map((item: any) => {
+    return (
+      <a key={item.id} href={item.url} target="_blank">
+        <Avatar src={item.avatarUrl}/>
+      </a>
+    )
+  })
+
+  const following = user.following.nodes.map((item: any) => {
+    return (
+      <a key={item.id} href={item.url} target="_blank">
+        <Avatar src={item.avatarUrl}/>
+      </a>
     )
   })
 
@@ -78,6 +93,27 @@ function Home(props: IProps) {
         </Col>
       </Row>
       <hr/>
+      {/* follower */}
+      <Row type="flex"  align="middle" justify="center">
+        <Col span={4}>
+          <h2 className={styles.title}>Followers <span className={styles.desc}>({user.followers.totalCount} Followers)</span></h2>
+        </Col>
+        <Col span={20}>
+          {followers}
+        </Col>
+      </Row>
+      <hr/>
+      {/* following */}
+      <Row type="flex"  align="middle" justify="center">
+        <Col span={4}>
+          <h2 className={styles.title}>Following <span className={styles.desc}>({user.following.totalCount} Following)</span></h2>
+        </Col>
+        <Col span={20}>
+          {following}
+        </Col>
+      </Row>
+      <hr/>
+      {/* Timeline */}
       <Timeline username={props.username}/>
     </div>
   )

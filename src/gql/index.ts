@@ -17,13 +17,16 @@ export const GETUSER = (username:string) => gql`
       followers(first: 100){
         totalCount
         nodes{
+          id
           login
           avatarUrl
           url
         }
       }
       following(first: 100){
+        totalCount
         nodes{
+          id
           login
           avatarUrl
           url
