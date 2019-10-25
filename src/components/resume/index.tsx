@@ -3,6 +3,21 @@ import { useQuery, } from '@apollo/react-hooks';
 import { GETUSER } from '@/gql'
 import { Row, Col, Card, Icon, Avatar, Tag, } from 'antd';
 import moment from 'moment'
+import {
+  G2,
+  Chart,
+  Geom,
+  Axis,
+  Tooltip,
+  Coord,
+  Label,
+  Legend,
+  View,
+  Guide,
+  Shape,
+  Facet,
+  Util
+} from "bizcharts";
 import Timeline from '../timeline'
 import styles from './index.css';
 
@@ -26,7 +41,7 @@ function Home(props: IProps) {
       <div key={repo.id}>
         <Row>
           <Col span={20}>
-            <h3><a href={repo.url} target="_blank">{repo.name}</a> {repo.stargazers.totalCount} <Icon type="star" theme="filled" /></h3>
+            <h3><a href={repo.url} target="_blank">{repo.name}</a> {repo.stargazers.totalCount}<Icon type="star" theme="filled" /></h3>
             {repo.primaryLanguage && <Tag color={repo.primaryLanguage.color} className={styles.tag}>{repo.primaryLanguage.name}</Tag>}
             <span>{repo.description}</span>
           </Col>

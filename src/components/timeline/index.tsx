@@ -64,8 +64,41 @@ class Home extends React.Component<HomeProps, HomeStates> {
   }
 
   render() {
+    const cols = {
+      total: {
+        min: 0
+      },
+      year: {
+        range: [0, 1]
+      }
+    };
+
     return (
       <div className={styles.content}>
+        {/* line-basic */}
+        <div>
+          <Chart height={400} data={this.props.commitData.years} scale={cols} forceFit>
+            <Axis name="year" />
+            <Axis name="total" />
+            <Tooltip
+              crosshairs={{
+                type: "y"
+              }}
+            />
+            <Geom type="line" position="year*total" size={2} />
+            <Geom
+              type="point"
+              position="year*total"
+              size={4}
+              shape={"circle"}
+              style={{
+                stroke: "#fff",
+                lineWidth: 1
+              }}
+            />
+          </Chart>
+        </div>
+        <hr/>
         <canvas ref={el => (this.canvas = el)} />
       </div>
     )

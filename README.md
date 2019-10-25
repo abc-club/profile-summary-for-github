@@ -20,6 +20,7 @@ npm start
 token获取方法 https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line
 
 ## 参考
-* https://github.com/resume/resume.github.com
-* https://github.com/sallar/github-contributions-chart
-* https://github.com/ecmadao/hacknical
+* https://github.com/resume/resume.github.com (42k ✨)
+* https://github.com/tipsy/profile-summary-for-github (19k ✨)
+* https://github.com/sallar/github-contributions-chart (3k ✨)
+* https://github.com/ecmadao/hacknical (1k ✨)
