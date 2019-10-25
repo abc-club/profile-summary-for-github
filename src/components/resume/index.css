@@ -1,0 +1,29 @@
+.name{
+  font-size: 48px;
+  color: #333;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.email{
+  font-size: 30px;
+  color: rgba(0,0,0,0.5);
+  letter-spacing: 3px;
+  font-style: italic;
+}
+.title{
+  color: #333;
+  letter-spacing: 3px;
+}
+.desc{
+  margin: 0;
+  font-size: 20px;
+  color: rgba(0,0,0,0.5);
+}
+.tag{
+  color: #fff;
+}
+.more{
+  display: inline-block;
+  height: 100px;
+  text-align: center;
+}
