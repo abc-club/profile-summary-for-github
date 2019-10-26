@@ -31,7 +31,7 @@ class Home extends React.Component<HomeProps, HomeStates> {
 
   onChange = (e: any) => {
     this.setState({
-      token: e.value,
+      token: e.target.value,
     })
   }
 

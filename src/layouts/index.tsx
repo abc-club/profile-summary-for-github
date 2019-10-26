@@ -1,23 +1,13 @@
 import React from 'react';
-import ApolloClient, { gql } from 'apollo-boost';
-import { ApolloProvider, useQuery, } from '@apollo/react-hooks';
 import { Layout } from 'antd';
-import { GITHUBTOKEN } from '@/config'
 import styles from './index.css';
 
 const { Header, Footer, Sider, Content } = Layout;
 
-const client = new ApolloClient({
-  uri: 'https://api.github.com/graphql',
-  headers: {
-    Authorization: `bearer ${GITHUBTOKEN}`
-  }
-});
 
 const BasicLayout: React.FC = props => {
   return (
-    <ApolloProvider client={client}>
-      <Layout className={styles.body}>
+    <Layout className={styles.body}>
         <Header className={styles.header}>
           <a className={styles.action} href="https://juejin.im/user/5b534e595188251b3950de48/posts" target="_blank">掘金</a>
           <a className={styles.action} href="https://github.com/aoping" target="_blank">作者</a>
@@ -34,7 +24,6 @@ const BasicLayout: React.FC = props => {
             Source is on <a href="https://github.com/abc-club/profile-summary-for-github" target="_blank">GitHub</a>.
         </Footer>
       </Layout>
-    </ApolloProvider>
   );
 };
 
