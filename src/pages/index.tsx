@@ -18,7 +18,7 @@ class Home extends React.Component<HomeProps, HomeStates> {
   constructor(props: HomeProps) {
     super(props)
     this.state ={
-      token: '06218f80da8d167429ac5ef2d28364f403d36747'
+      token: '3aac9f1e2be13a1b740e354c9ed24c9935396b4f'
     }
   }
   componentDidMount() {
