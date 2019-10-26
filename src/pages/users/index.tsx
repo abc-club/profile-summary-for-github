@@ -27,7 +27,6 @@ class Home extends React.Component<HomeProps, HomeStates> {
     }
   }
   componentDidMount() {
-    console.log(this.props.location)
     let { query: { username}} = (this.props.location as any)
     this.setState({
       username

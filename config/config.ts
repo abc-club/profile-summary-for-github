@@ -9,7 +9,13 @@ const config: IConfig =  {
       component: '../layouts/index',
       routes: [
         { path: '/', component: '../pages/index' },
-        { path: '/users', component: '../pages/users/index' },
+        {
+          path: '/users',
+          component: '../layouts/gqlLayout/index',
+          routes: [
+            { path: '/users', component: '../pages/users/index' },
+          ]
+        },
       ]
     }
   ],
