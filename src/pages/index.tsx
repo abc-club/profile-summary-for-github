@@ -61,7 +61,7 @@ class Home extends React.Component<HomeProps, HomeStates> {
             </Tooltip>
           </Col>
         </Row>
-        <Search placeholder="input username" value={username} onSearch={value => this.onSearch(value)} enterButton />
+        <Search placeholder="input username" value={username} onChange={e => this.setUsername(e.target.value)} onSearch={value => this.onSearch(value)} enterButton />
         <div style={{marginTop: '10px'}}>
           <Tag color="magenta" onClick={value => this.setUsername('aoping')}>aoping</Tag>
           <Tag color="magenta" onClick={value => this.setUsername('tj')}>TJ Holowaychuk</Tag>
