@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Tag, Tooltip, Icon, Row, Col, } from 'antd';
+import { Input, Tag, Tooltip, Icon, Row, Col, message, } from 'antd';
 import router from 'umi/router';
 import Link from 'umi/link';
 
@@ -10,6 +10,7 @@ export interface HomeProps {
 }
 
 interface HomeStates {
+  username: string
   token: string
 }
 
@@ -18,7 +19,8 @@ class Home extends React.Component<HomeProps, HomeStates> {
   constructor(props: HomeProps) {
     super(props)
     this.state ={
-      token: 'eabef4f9d89b4c69826e87229734d1d6eda60e56'
+      username: '',
+      token: ''
     }
   }
   componentDidMount() {
@@ -26,6 +28,10 @@ class Home extends React.Component<HomeProps, HomeStates> {
   }
 
   onSearch = (username: string) => {
+    if (!username || !this.state.token) {
+      message.error('请输入token和username');
+      return
+    }
     router.push(`/users?username=${username}&token=${this.state.token}`)
   }
 
@@ -35,8 +41,14 @@ class Home extends React.Component<HomeProps, HomeStates> {
     })
   }
 
+  setUsername = (username: string) => {
+    this.setState({
+      username,
+    })
+  }
+
   render() {
-    const {token} = this.state
+    const { username, token} = this.state
     return (
       <div>
         <Row style={{marginBottom: '10px'}}>
@@ -49,11 +61,11 @@ class Home extends React.Component<HomeProps, HomeStates> {
             </Tooltip>
           </Col>
         </Row>
-        <Search placeholder="input username" onSearch={value => this.onSearch(value)} enterButton />
+        <Search placeholder="input username" value={username} onSearch={value => this.onSearch(value)} enterButton />
         <div style={{marginTop: '10px'}}>
-          <Link to={`/users?username=aoping&token=${token}`}><Tag color="magenta">aoping</Tag></Link>
-          <Link to={`/users?username=tj&token=${token}`}><Tag color="magenta">TJ Holowaychuk</Tag></Link>
-          <Link to={`/users?username=yyx990803&token=${token}`}><Tag color="magenta">Evan You</Tag></Link>
+          <Tag color="magenta" onClick={value => this.setUsername('aoping')}>aoping</Tag>
+          <Tag color="magenta" onClick={value => this.setUsername('tj')}>TJ Holowaychuk</Tag>
+          <Tag color="magenta" onClick={value => this.setUsername('yyx990803')}>Evan You</Tag>
         </div>
       </div>
     )
