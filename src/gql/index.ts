@@ -32,7 +32,7 @@ export const GETUSER = (username:string) => gql`
           url
         }
       }
-      repositories(first : 10, isFork : false, orderBy: {direction: DESC, field: CREATED_AT }) {
+      repositories(first : 10, isFork : false, orderBy: {direction: DESC, field: STARGAZERS }) {
         totalCount
         nodes {
           id

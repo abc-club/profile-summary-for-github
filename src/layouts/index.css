@@ -28,6 +28,15 @@
   border-width: 2px 0 2px 0;
   box-shadow: 0 1px 3px #eee9df;
 }
+.qrcodeWrap{
+  text-align: center;
+}
+.qrcode {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin: auto 20px;
+}
 .footer{
   font-size: 17px;
   position: fixed;

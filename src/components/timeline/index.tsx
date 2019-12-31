@@ -55,8 +55,11 @@ class Home extends React.Component<HomeProps, HomeStates> {
         error: "Something went wrong... Check back later."
       });
     }
+    let data = JSON.parse(JSON.stringify(this.props.commitData))
+    // 只取最近一年
+    data.years = [data.years[0]]
     drawContributions(this.canvas, {
-      data: this.props.commitData,
+      data,
       username: this.props.username,
       themeName: 'standard',
       footerText: ""
@@ -77,13 +80,11 @@ class Home extends React.Component<HomeProps, HomeStates> {
       <div className={styles.content}>
         {/* line-basic */}
         <div>
-          <Chart height={400} data={this.props.commitData.years} scale={cols} forceFit>
+          <Chart height={400} data={this.props.commitData.years} scale={cols} forceFit={true}>
             <Axis name="year" />
             <Axis name="total" />
             <Tooltip
-              crosshairs={{
-                type: "y"
-              }}
+              crosshairs={{ type: "y" }}
             />
             <Geom type="line" position="year*total" size={2} />
             <Geom
@@ -91,10 +92,7 @@ class Home extends React.Component<HomeProps, HomeStates> {
               position="year*total"
               size={4}
               shape={"circle"}
-              style={{
-                stroke: "#fff",
-                lineWidth: 1
-              }}
+              style={{ stroke: "#fff", lineWidth: 1 }}
             />
           </Chart>
         </div>
